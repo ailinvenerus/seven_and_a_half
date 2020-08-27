@@ -2,25 +2,59 @@ package model.cards;
 
 import model.player.Player;
 
-import java.util.Random;
-
 public class Deck {
 
-    private Card generateCard() {
-        Card card = new Number(Suit.SPADES, 2);
-    return card;
-    }
-//        //todo
-//        Random random = new Random();
-//        Integer cardType = random.nextInt(1 + 1);
-//        if(cardType == 0) {
-//            Card card = new Figure(S)
-//        }
-//        Card card = new
-//    }
-
     public void handOutCard(Player player) {
-        if(player.getPointsToStop() < player.calculatePoints()) player.receiveNewCard(generateCard());
+        player.receiveNewCard(generateCard());
     }
 
+    protected Card generateCard() {
+        int suitNumber = randomNumber(4);
+        int number = randomNumber(10);
+        Card card;
+        Suit suit = generateSuit(suitNumber);
+        if (number < 8 && number > 0) {
+            card = new Number(suit, number);
+        } else {
+            card = new Figure(suit, generateFigure(number));
+        }
+        return card;
+    }
+
+    private Suit generateSuit(Integer number) {
+        Suit suit;
+        switch (number) {
+            case 1:
+                suit = Suit.SPADES;
+                break;
+            case 2:
+                suit = Suit.CUPS;
+                break;
+            case 3:
+                suit = Suit.COINS;
+                break;
+            default:
+                suit = Suit.CLUBS;
+        }
+        return suit;
+    }
+
+    private FigureType generateFigure(Integer number) {
+        FigureType figureType;
+        switch (number) {
+            case 8:
+                figureType = FigureType.JACK;
+                break;
+            case 9:
+                figureType = FigureType.KNIGHT;
+                break;
+            default:
+                figureType = FigureType.KING;
+        }
+        return figureType;
+    }
+
+    private int randomNumber(int max) {
+        return (int) (Math.random() * max);
+    }
 }

@@ -37,5 +37,16 @@ public class Game {
         return bench;
     }
 
-    //    public void handOutCard() {} //todo aca hace la logica de elegir al jugador y darle la carta
+    private void initialHandOut() {
+        players.forEach(p -> deck.handOutCard(p));
+    }
+
+    private void handOutCards() {
+        players.stream().filter(Player::canReceiveCard).forEach(p -> deck.handOutCard(p));
+    }
+
+    public void play() {
+        initialHandOut();
+        handOutCards();
+    }
 }

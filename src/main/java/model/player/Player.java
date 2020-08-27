@@ -34,6 +34,10 @@ public class Player {
         cards.add(card);
     }
 
+    public boolean canReceiveCard() {
+        return getPointsToStop() > calculatePoints();
+    }
+
     public List<Card> getCards() {
         return cards;
     }
