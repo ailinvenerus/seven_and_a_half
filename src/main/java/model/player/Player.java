@@ -9,7 +9,8 @@ import java.util.Random;
 public class Player {
 
     private List<Card> cards;
-    private final Integer pointsToStop;
+
+    private Integer pointsToStop;
 
     public Player() {
         this.cards = new ArrayList<>();
@@ -48,6 +49,10 @@ public class Player {
 
     public Integer getPointsToStop() {
         return pointsToStop;
+    }
+
+    public void setPointsToStop(Integer pointsToStop) {
+        this.pointsToStop = pointsToStop;
     }
 
 }

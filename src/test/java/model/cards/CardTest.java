@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class CardTest {
 
     @Test
-    public void creating_cards() {
+    void creating_cards() {
         Card fiveOfSpades = new Number(Suit.SPADES, 5);
         Card kingOfClubs = new Figure(Suit.CLUBS, FigureType.KING);
         Card jackOfCups = new Figure(Suit.CUPS, FigureType.JACK);

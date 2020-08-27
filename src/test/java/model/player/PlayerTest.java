@@ -99,4 +99,32 @@ class PlayerTest {
         cards.add(fiveOfSpades);
         Assertions.assertFalse(anna.hasWon(bench));
     }
+
+    @Test
+    void receiveNewCard() {
+        anna.receiveNewCard(fiveOfSpades);
+        Assertions.assertTrue(anna.getCards().contains(fiveOfSpades));
+    }
+
+    @Test
+    void canReceiveCard_true() {
+        anna.setPointsToStop(5);
+        cards.add(twoOfCoins);
+        Assertions.assertTrue(anna.canReceiveCard());
+    }
+
+    @Test
+    void canReceiveCard_false_equalPointsToStop() {
+        anna.setPointsToStop(5);
+        cards.add(fiveOfSpades);
+        Assertions.assertFalse(anna.canReceiveCard());
+    }
+
+    @Test
+    void canReceiveCard_false_tooMuchPoints() {
+        anna.setPointsToStop(5);
+        cards.add(sixOfSpades);
+        Assertions.assertFalse(anna.canReceiveCard());
+    }
+
 }
