@@ -2,9 +2,9 @@ package model.cards;
 
 public class Number implements Card {
     private final Suit suit;
-    private final Double number;
+    private final Integer number;
 
-    public Number(Suit suit, Double number) {
+    public Number(Suit suit, Integer number) {
         this.suit = suit;
         this.number = number;
     }
@@ -13,7 +13,11 @@ public class Number implements Card {
         return suit;
     }
 
-    public Double getPoints() {
+    public double getPoints() {
+        return (double) number;
+    }
+
+    public Integer getNumber() {
         return number;
     }
 

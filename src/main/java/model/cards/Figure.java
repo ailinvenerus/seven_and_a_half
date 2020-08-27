@@ -13,11 +13,15 @@ public class Figure implements Card {
         return suit;
     }
 
+    public Integer getNumber() {
+        return null;
+    }
+
     public FigureType getFigureType() {
         return figureType;
     }
 
-    public Double getPoints() {
-        return 1.5;
+    public double getPoints() {
+        return 0.5;
     }
 }

@@ -3,7 +3,8 @@ package model.cards;
 public interface Card {
 
     Suit getSuit();
-    Double getPoints();
+    double getPoints();
     FigureType getFigureType();
+    Integer getNumber();
 
 }
