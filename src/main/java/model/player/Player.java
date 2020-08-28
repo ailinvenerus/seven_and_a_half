@@ -8,11 +8,12 @@ import java.util.Random;
 
 public class Player {
 
+    private String name;
     private List<Card> cards;
-
     private Integer pointsToStop;
 
-    public Player() {
+    public Player(String name) {
+        this.name = name;
         this.cards = new ArrayList<>();
         this.pointsToStop = generateRandomStop();
     }
@@ -55,4 +56,16 @@ public class Player {
         this.pointsToStop = pointsToStop;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", cards=" + cards +
+                ", pointsToStop=" + pointsToStop +
+                '}';
+    }
 }

@@ -25,10 +25,10 @@ class PlayerTest {
 
     @BeforeEach
     public void init() {
-        anna = new Player();
+        anna = new Player("Anna");
         cards = new ArrayList<>();
         anna.setCards(cards);
-        bench = new Player();
+        bench = new Player("Bench");
         benchCards = new ArrayList<>();
         bench.setCards(benchCards);
     }

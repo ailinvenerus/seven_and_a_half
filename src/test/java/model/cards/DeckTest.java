@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class DeckTest {
 
     Deck deck = new Deck();
-    Player anna = new Player();
+    Player anna = new Player("Anna");
 
     @Test
     void handOutCard_total_1() {

@@ -11,10 +11,10 @@ public class Game {
     private List<Player> players;
     private Player bench;
 
-    public Game(List<Player> players, Player bench) {
+    public Game(List<Player> players) {
         this.deck = new Deck();
         this.players = players;
-        this.bench = bench;
+        this.bench = new Player("Bench");
     }
 
     public List<Player> winners() {
@@ -23,6 +23,19 @@ public class Game {
 
     public List<Player> losers() {
         return players.stream().filter(p -> !p.hasWon(bench)).collect(Collectors.toList());
+    }
+
+    protected void initialHandOut() {
+        players.forEach(p -> deck.handOutCard(p));
+    }
+
+    protected void handOutCards() {
+        players.stream().filter(Player::canReceiveCard).forEach(p -> deck.handOutCard(p));
+    }
+
+    public void play() {
+        initialHandOut();
+        handOutCards();
     }
 
     public Deck getDeck() {
@@ -37,16 +50,7 @@ public class Game {
         return bench;
     }
 
-    private void initialHandOut() {
-        players.forEach(p -> deck.handOutCard(p));
-    }
-
-    private void handOutCards() {
-        players.stream().filter(Player::canReceiveCard).forEach(p -> deck.handOutCard(p));
-    }
-
-    public void play() {
-        initialHandOut();
-        handOutCards();
+    public void setBench(Player bench) {
+        this.bench = bench;
     }
 }

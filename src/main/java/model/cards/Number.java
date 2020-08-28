@@ -25,4 +25,11 @@ public class Number implements Card {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "Number{" +
+                "suit=" + suit +
+                ", number=" + number +
+                '}';
+    }
 }

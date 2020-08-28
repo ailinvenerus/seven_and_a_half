@@ -2,6 +2,8 @@ package model.cards;
 
 import model.player.Player;
 
+import static java.lang.Math.*;
+
 public class Deck {
 
     public void handOutCard(Player player) {
@@ -55,6 +57,6 @@ public class Deck {
     }
 
     private int randomNumber(int max) {
-        return (int) (Math.random() * max);
+        return (int) (random() * max);
     }
 }

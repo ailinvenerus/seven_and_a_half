@@ -24,4 +24,12 @@ public class Figure implements Card {
     public double getPoints() {
         return 0.5;
     }
+
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "suit=" + suit +
+                ", figureType=" + figureType +
+                '}';
+    }
 }
