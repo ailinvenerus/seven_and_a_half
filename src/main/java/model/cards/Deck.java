@@ -2,9 +2,15 @@ package model.cards;
 
 import model.player.Player;
 
-import static java.lang.Math.*;
+import static java.lang.Math.random;
 
 public class Deck {
+
+    public void handOutCards(Player player) {
+        while (player.canReceiveCard()) {
+            player.receiveNewCard(generateCard());
+        }
+    }
 
     public void handOutCard(Player player) {
         player.receiveNewCard(generateCard());

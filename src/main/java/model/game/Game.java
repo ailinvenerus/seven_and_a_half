@@ -30,12 +30,16 @@ public class Game {
     }
 
     protected void handOutCards() {
-        players.stream().filter(Player::canReceiveCard).forEach(p -> deck.handOutCard(p));
+        players.forEach(p -> deck.handOutCards(p));
     }
 
     public void play() {
         initialHandOut();
         handOutCards();
+    }
+
+    private void benchPlays() {
+        deck.handOutCards(bench);
     }
 
     public Deck getDeck() {

@@ -7,32 +7,6 @@ import org.junit.jupiter.api.Test;
 class DeckTest {
 
     Deck deck = new Deck();
-    Player anna = new Player("Anna");
-
-    @Test
-    void handOutCard_total_1() {
-        deck.handOutCard(anna);
-        Assertions.assertEquals(1, (long) anna.getCards().size());
-    }
-
-    @Test
-    void handOutCard_total_4() {
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        Assertions.assertEquals(4, (long) anna.getCards().size());
-    }
-
-    @Test
-    void handOutCard_total_5() {
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        deck.handOutCard(anna);
-        Assertions.assertEquals(5, (long) anna.getCards().size());
-    }
 
     @Test
     void generateCard() {
