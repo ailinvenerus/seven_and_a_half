@@ -14,9 +14,9 @@ import java.util.List;
 class PlayerTest {
 
     Player anna;
-    Player bench;
+    Player bank;
     List<Card> cards;
-    List<Card> benchCards;
+    List<Card> bankCards;
     Card fiveOfSpades = new Number(Suit.SPADES, 5);
     Card kingOfClubs = new Figure(Suit.CLUBS, FigureType.KING);
     Card jackOfCups = new Figure(Suit.CUPS, FigureType.JACK);
@@ -28,9 +28,9 @@ class PlayerTest {
         anna = new Player("Anna");
         cards = new ArrayList<>();
         anna.setCards(cards);
-        bench = new Player("Bench");
-        benchCards = new ArrayList<>();
-        bench.setCards(benchCards);
+        bank = new Player("Bank");
+        bankCards = new ArrayList<>();
+        bank.setCards(bankCards);
     }
 
     @Test
@@ -65,39 +65,39 @@ class PlayerTest {
 
     @Test
     void hasWon_excessOfPoints() {
-        benchCards.add(sixOfSpades);
-        benchCards.add(twoOfCoins);
+        bankCards.add(sixOfSpades);
+        bankCards.add(twoOfCoins);
         cards.add(fiveOfSpades);
-        Assertions.assertTrue(anna.hasWon(bench));
+        Assertions.assertTrue(anna.hasWon(bank));
     }
 
     @Test
     void hasWon_notEnoughPoints() {
-        benchCards.add(twoOfCoins);
+        bankCards.add(twoOfCoins);
         cards.add(fiveOfSpades);
-        Assertions.assertTrue(anna.hasWon(bench));
+        Assertions.assertTrue(anna.hasWon(bank));
     }
 
     @Test
     void hasWon_tie() {
-        benchCards.add(fiveOfSpades);
+        bankCards.add(fiveOfSpades);
         cards.add(fiveOfSpades);
-        Assertions.assertTrue(anna.hasWon(bench));
+        Assertions.assertTrue(anna.hasWon(bank));
     }
 
     @Test
     void lose_notEnoughPoints() {
-        benchCards.add(sixOfSpades);
+        bankCards.add(sixOfSpades);
         cards.add(fiveOfSpades);
-        Assertions.assertFalse(anna.hasWon(bench));
+        Assertions.assertFalse(anna.hasWon(bank));
     }
 
     @Test
     void lose_excessOfPoints() {
-        benchCards.add(twoOfCoins);
+        bankCards.add(twoOfCoins);
         cards.add(sixOfSpades);
         cards.add(fiveOfSpades);
-        Assertions.assertFalse(anna.hasWon(bench));
+        Assertions.assertFalse(anna.hasWon(bank));
     }
 
     @Test

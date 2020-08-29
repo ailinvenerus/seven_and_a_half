@@ -21,7 +21,7 @@ class GameTest {
 
     @Mock
     Player anna = mock(Player.class);
-    Player bench = mock(Player.class);
+    Player bank = mock(Player.class);
     Player john = mock(Player.class);
     Player peter = mock(Player.class);
     Game game;
@@ -37,10 +37,10 @@ class GameTest {
 
     @Test
     void winners_losers() {
-        game.setBench(bench);
-        Mockito.when(anna.hasWon(bench)).thenReturn(true);
-        Mockito.when(john.hasWon(bench)).thenReturn(false);
-        Mockito.when(peter.hasWon(bench)).thenReturn(true);
+        game.setBank(bank);
+        Mockito.when(anna.hasWon(bank)).thenReturn(true);
+        Mockito.when(john.hasWon(bank)).thenReturn(false);
+        Mockito.when(peter.hasWon(bank)).thenReturn(true);
         List<Player> winners = new ArrayList<>();
         winners.add(anna);
         winners.add(peter);
@@ -57,8 +57,8 @@ class GameTest {
     }
 
     @Test
-    void getBench() {
-        Assertions.assertNotNull(game.getBench());
+    void getBank() {
+        Assertions.assertNotNull(game.getBank());
     }
 
     @Test

@@ -9,20 +9,20 @@ import java.util.stream.Collectors;
 public class Game {
     private Deck deck;
     private List<Player> players;
-    private Player bench;
+    private Player bank;
 
     public Game(List<Player> players) {
         this.deck = new Deck();
         this.players = players;
-        this.bench = new Player("Bench");
+        this.bank = new Player("Bank");
     }
 
     public List<Player> winners() {
-        return players.stream().filter(p -> p.hasWon(bench)).collect(Collectors.toList());
+        return players.stream().filter(p -> p.hasWon(bank)).collect(Collectors.toList());
     }
 
     public List<Player> losers() {
-        return players.stream().filter(p -> !p.hasWon(bench)).collect(Collectors.toList());
+        return players.stream().filter(p -> !p.hasWon(bank)).collect(Collectors.toList());
     }
 
     protected void initialHandOut() {
@@ -36,10 +36,11 @@ public class Game {
     public void play() {
         initialHandOut();
         handOutCards();
+        bank();
     }
 
-    private void benchPlays() {
-        deck.handOutCards(bench);
+    private void bank() {
+        deck.handOutCards(bank);
     }
 
     public Deck getDeck() {
@@ -50,11 +51,11 @@ public class Game {
         return players;
     }
 
-    public Player getBench() {
-        return bench;
+    public Player getBank() {
+        return bank;
     }
 
-    public void setBench(Player bench) {
-        this.bench = bench;
+    public void setBank(Player bank) {
+        this.bank = bank;
     }
 }

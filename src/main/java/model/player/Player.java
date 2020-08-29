@@ -27,9 +27,9 @@ public class Player {
         return cards.stream().mapToDouble(Card::getPoints).sum();
     }
 
-    public Boolean hasWon(Player bench) {
+    public Boolean hasWon(Player bank) {
         Double points = calculatePoints();
-        return (points <= 7.5 && bench.calculatePoints() <= points) || bench.calculatePoints() > 7.5;
+        return (points <= 7.5 && bank.calculatePoints() <= points) || bank.calculatePoints() > 7.5;
     }
 
     public void receiveNewCard(Card card) {
