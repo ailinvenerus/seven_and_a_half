@@ -1,5 +1,4 @@
 # seven_and_a_half
-
 ## Model
 
 There is an infinite deck, a number of players and the bank. The bank deals pointing a card to each player, and then gives each player an extra card until they stand or go past seven and a half. Then the bank plays itself.
@@ -12,3 +11,30 @@ Yes, I am interested in knowing, on the one hand, the value of the card for seve
 You have to determine which players won and which players lost. Those who have more than the bench win, and also they did not exceed 7 and a half points. E.g. If the bank makes 6 and a half, the players who made 7 or 7 and a half win.
 
 Suppose that each player stands on a certain amount (eg one on 6, another on 5, etc.); idem banking.
+
+## Technologies used:
+
+- Java
+- Maven
+
+## Setup
+
+Java version must be 1.8 (to verify your current version write: `java -version` in console)
+
+## Import project
+
+1- Open intelliJ
+
+2- Import project
+
+## Running tests from Intellij
+
+1- Right click on folder `/src/test/java`
+
+2- Click on `Run 'All Tests'`
+
+## Running tests from console
+
+1- Open console
+
+2- Type `mvn clean compile test`
